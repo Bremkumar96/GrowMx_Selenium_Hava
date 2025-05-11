@@ -44,7 +44,7 @@ public class Login_Test extends Base_Class {
 	//	a++;	
 	}
 	// Login with valid credentials
-	@Test (dataProvider = "validCred")
+	@Test (dataProvider = "validCredentials")
 	private void tc1(String text1 , String text2) {
 		text(p.getUsername(), text1);
 		text(p.getPassword(), text2);
