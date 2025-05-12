@@ -5,7 +5,9 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -86,7 +88,7 @@ public class Base_Class {
     }
 
     // Method to take a screenshot
-    public static void snap(String snapName) {
+    public static String snap(String snapName) {
         TakesScreenshot tk = (TakesScreenshot) driver;
         File s = tk.getScreenshotAs(OutputType.FILE);
         File d = new File("C:\\Users\\user\\eclipse-workspace\\New_2025\\Snaps\\" + snapName + ".jpeg");
@@ -96,6 +98,7 @@ public class Base_Class {
             System.out.println("Exception Occured while taking Screenshot");
             e.printStackTrace();
         }
+		return snapName;
     }
 
     // Method to scroll to an element
@@ -137,4 +140,19 @@ public class Base_Class {
     	r.keyPress(KeyEvent.VK_ENTER);
     	r.keyRelease(KeyEvent.VK_ENTER);
     }
+    public String captureScreen(String tname) throws IOException {
+
+		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+				
+		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+		
+		String targetFilePath=System.getProperty("user.dir")+"\\screenshots\\" + tname + "_" + timeStamp + ".png";
+		File targetFile=new File(targetFilePath);
+		
+		sourceFile.renameTo(targetFile);
+			
+		return targetFilePath;
+
+	}
 }

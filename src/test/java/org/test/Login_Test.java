@@ -20,8 +20,6 @@ import org.testng.annotations.Test;
 
 public class Login_Test extends Base_Class {
 	static Pojo p;
-	static String a = "";
-	
 	WebDriverWait w;
 	@BeforeClass
 	private void startBrowser() {
@@ -40,61 +38,61 @@ public class Login_Test extends Base_Class {
 	}
 	@AfterMethod
 	private static void takeSnap() {
-		snap(a);
-	//	a++;	
+		
 	}
 	// Login with valid credentials
-	@Test (dataProvider = "validCredentials123")
-	private void tc1(String text1 , String text2) {
+	@Test (dataProvider = "validCred")
+	private void tc1_login_valid_credentials(String text1 , String text2) {
 		text(p.getUsername(), text1);
 		text(p.getPassword(), text2);
 		click(p.getSubmit());
 		WebElement not = w.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h5[text()='Welcome to GroMaxx AI Assistant']")));
-		Assert.assertTrue(not.isDisplayed(), "Account Button not displayed, Invalid Cred");
-		a="tc1";
+		boolean bool = not.isDisplayed();
+		Assert.assertTrue(bool, "Account Button not displayed, Invalid Cred");
+		
 	}
 	// Login with Invalid credentials
-//	@Test (dataProvider = "invalidCred")
-	private void tc2(String text1 , String text2) {
+	@Test (dataProvider = "invalidCred")
+	private void tc2_login_invalid_credentials(String text1 , String text2) {
 		text(p.getUsername(), text1);
 		text(p.getPassword(), text2);
 		click(p.getSubmit());
-		a = "Invalid Cred";
+	
 		w.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[text()='AI Assistant']")));
 		Assert.assertTrue(p.getHomePage().isDisplayed(), "Account Button not displayed, Invalid Cred");
 		
 	}
 	// Password visiblity
-//	@Test
-	public void tc3() {
+	@Test
+	public void tc3_eye_icon() {
 		text(p.getPassword(), "String@123");
 		click(p.getEyeToggle());
-		a = "Eye_Toggle";
 	}
 	//Reset Password
-//	@Test
-	public void tc4() {
+	@Test
+	public void tc4_reset_password_page() {
 		click(p.getForgotPassword());
 		w.until(ExpectedConditions.elementToBeClickable(p.getResetPassword()));
 		Assert.assertTrue(p.getResetPassword().isDisplayed(), "Reset page not re-directed");
-		a = "Reset_Password";
+
 	}
 	
 	//Logout
 	@Test (dataProvider = "validCred")
-	private void tc5(String text1 , String text2) {
+	private void tc5_logout_signIn_page(String text1 , String text2) {
 		text(p.getUsername(), text1);
 		text(p.getPassword(), text2);
 		click(p.getSubmit());
 		click(w.until(ExpectedConditions.elementToBeClickable(p.getAccount())));
 		click(w.until(ExpectedConditions.elementToBeClickable(p.getLogout())));
-		a = "LLogged_Out_Login_Page";
+		boolean bool = driver.findElement(By.xpath("//h1[text()=\"Sign In\"]")).isDisplayed();
+		Assert.assertTrue(bool, "Issue in Logout");
 	}
 	
 	@DataProvider(name = "validCred")
 	private Object[][] getValidData(){
 		return new Object[][] {
-			{"vishnu.v.t@gmail.com"	,"String@123"},
+			{"vishnu.v.t@gmail.com"	,"String@12"},
 		};
 	}
 	
@@ -102,8 +100,8 @@ public class Login_Test extends Base_Class {
 	private Object[][] getInvalidData(){
 		return new Object[][] {
 			{"vishnu.v.t@gmail.com"	,"string@123"},	
-			{"abc@gmail.com" , "String@123"},
-			{"" , ""},
+		//	{"abc@gmail.com" , "String@123"},
+		//	{"" , ""},
 		};
 	}
 	
