@@ -3,15 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.test.Login_Test">
+      <class name="org.test.UploadFile">
         <methods>
-          <include name="takeSnap"/>
-          <include name="tc1" invocation-numbers="0"/>
-          <include name="loadUrl"/>
-          <include name="startBrowser"/>
-          <include name="quitBrowser"/>
+          <include name="tc1"/>
         </methods>
-      </class> <!-- org.test.Login_Test -->
+      </class> <!-- org.test.UploadFile -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

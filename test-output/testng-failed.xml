@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="org.test.MyListener"/>
-  </listeners>
-  <test thread-count="5" name="Test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.test.Login_Test">
+      <class name="org.test.UploadFile">
         <methods>
-          <include name="takeSnap"/>
-          <include name="tc2_login_invalid_credentials" invocation-numbers="0"/>
-          <include name="tc1_login_valid_credentials" invocation-numbers="0"/>
-          <include name="loadUrl"/>
-          <include name="startBrowser"/>
-          <include name="tc5_logout_signIn_page" invocation-numbers="0"/>
-          <include name="quitBrowser"/>
+          <include name="tc1"/>
         </methods>
-      </class> <!-- org.test.Login_Test -->
+      </class> <!-- org.test.UploadFile -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
