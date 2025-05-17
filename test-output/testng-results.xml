@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-13T06:38:24Z" name="Default suite" finished-at="2025-05-13T06:38:36Z" duration-ms="12853">
+  <suite started-at="2025-05-17T17:10:59Z" name="Default suite" finished-at="2025-05-17T17:11:28Z" duration-ms="29774">
     <groups>
     </groups>
-    <test started-at="2025-05-13T06:38:24Z" name="Default test" finished-at="2025-05-13T06:38:36Z" duration-ms="12853">
-      <class name="org.test.UploadFile">
-        <test-method signature="tc1()[pri:0, instance:org.test.UploadFile@27216cd]" started-at="2025-05-13T06:38:24Z" name="tc1" finished-at="2025-05-13T06:38:36Z" duration-ms="12829" status="PASS">
+    <test started-at="2025-05-17T17:10:59Z" name="Default test" finished-at="2025-05-17T17:11:28Z" duration-ms="29774">
+      <class name="org.test.Calender">
+        <test-method signature="tc001()[pri:0, instance:org.test.Calender@27216cd]" started-at="2025-05-17T17:10:59Z" name="tc001" finished-at="2025-05-17T17:11:28Z" duration-ms="29749" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc1 -->
-      </class> <!-- org.test.UploadFile -->
+        </test-method> <!-- tc001 -->
+      </class> <!-- org.test.Calender -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

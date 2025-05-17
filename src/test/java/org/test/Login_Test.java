@@ -92,7 +92,7 @@ public class Login_Test extends Base_Class {
 	@DataProvider(name = "validCred")
 	private Object[][] getValidData(){
 		return new Object[][] {
-			{"vishnu.v.t@gmail.com"	,"String@12"},
+			{"vishnu.v.t@gmail.com"	,"String@123"},
 		};
 	}
 	

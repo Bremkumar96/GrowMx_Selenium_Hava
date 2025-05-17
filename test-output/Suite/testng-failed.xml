@@ -10,10 +10,8 @@
         <methods>
           <include name="takeSnap"/>
           <include name="tc2_login_invalid_credentials" invocation-numbers="0"/>
-          <include name="tc1_login_valid_credentials" invocation-numbers="0"/>
           <include name="loadUrl"/>
           <include name="startBrowser"/>
-          <include name="tc5_logout_signIn_page" invocation-numbers="0"/>
           <include name="quitBrowser"/>
         </methods>
       </class> <!-- org.test.Login_Test -->
